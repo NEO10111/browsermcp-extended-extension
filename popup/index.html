@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BrowserMCP Extended</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="panel">
+    <header class="header">
+      <div class="identity">
+        <img class="app-icon" src="../icon/48.png" width="24" height="24" alt="">
+        <div><h1>BrowserMCP Extended</h1><span class="header-caption">CONTROL PANEL</span></div>
+      </div>
+      <div class="power">
+        <span id="powerLabel">Loading</span>
+        <button id="powerSwitch" class="switch" type="button" role="switch" aria-checked="false" aria-label="Enable MCP automation" disabled><span></span></button>
+      </div>
+    </header>
+
+    <section class="status-panel" aria-live="polite">
+      <span id="statusDot" class="status-indicator"></span>
+      <div class="status-copy"><strong id="statusText">Loading…</strong><span id="statusDescription">Checking connection status.</span></div>
+      <span class="status-port">LOCAL</span>
+    </section>
+
+    <section class="tool-section target-section" aria-labelledby="targetHeading">
+      <div class="section-label"><h2 id="targetHeading">ACTIVE TAB</h2><span id="tabId">#—</span></div>
+      <button id="btnSwitchTab" class="target-row" type="button" aria-expanded="false" aria-controls="tabDropdown">
+        <span class="target-icon"><span id="tabFaviconPlaceholder" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg></span><img id="tabFavicon" class="favicon-img" alt="" hidden></span>
+        <span class="target-content"><span id="tabTitle" class="target-title">No active tab</span><span id="tabDomain" class="target-url">—</span></span>
+        <svg class="ui-icon chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div id="tabDropdown" class="tabs-list"></div>
+    </section>
+
+    <section class="tool-section drawer" id="sectionLog">
+      <button class="fold-button" id="logHeader" type="button" aria-expanded="false" aria-controls="logContent">
+        <span class="fold-label"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg>Activity <span id="logBadge" class="count">0</span></span>
+        <svg class="ui-icon chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div id="logContent" class="drawer-body">
+        <div class="drawer-toolbar"><span>Recent commands</span><button id="btnClearLog" class="text-button" type="button"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18m-2 0-1 14H6L5 6m3 0V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2M10 11v5m4-5v5"/></svg><span>Clear</span></button></div>
+        <div id="logStream" class="log-stream"><div id="logEmpty" class="empty-feed">No recent commands</div></div>
+      </div>
+    </section>
+
+    <details class="tool-section settings">
+      <summary class="fold-button"><span class="fold-label"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9m4 0h3M4 17h3m4 0h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg>Connection</span><svg class="ui-icon chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <form id="settingsForm">
+        <label for="inputPort">Port<input id="inputPort" type="number" min="1" max="65535" required value="9877"></label>
+        <label for="inputTimeout">Timeout (s)<input id="inputTimeout" type="number" min="1" max="300" required value="15"></label>
+        <button id="btnApply" class="save-button" type="submit"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg><span id="saveLabel">Save</span></button>
+      </form>
+    </details>
+
+    <p id="feedback" role="status" hidden></p>
+    <footer><span class="footer-connection"><span class="footer-dot"></span>LOCAL MCP</span><span>v<span id="version"></span></span></footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+*.har
+*.crx
+*.pem
+coverage/
+test-results/
+playwright-report/
+.DS_Store
+.idea/
+.vscode/
+.tmp/
+.local/

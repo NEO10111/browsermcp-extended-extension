@@ -1,0 +1,19 @@
+{
+  "name": "browsermcp-extended-extension",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Chrome extension for local MCP browser automation and network inspection.",
+  "license": "Apache-2.0",
+  "author": "NEO10111",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NEO10111/browsermcp-extended-extension.git"
+  },
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "test": "node --test tests/*.test.cjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

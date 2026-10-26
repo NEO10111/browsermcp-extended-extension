@@ -1,0 +1,17 @@
+BrowserMCP Extended
+Copyright 2026 NEO10111 and contributors.
+
+This is an independent modified project. It is not an official Browser MCP,
+Google Chrome, Adobe, or OpenAI product.
+
+The MCP tool interface and portions of the navigation server are based on
+Browser MCP: https://github.com/BrowserMCP/mcp (Apache License 2.0).
+Browser MCP credits Microsoft Playwright MCP as an upstream project:
+https://github.com/microsoft/playwright-mcp (Apache License 2.0).
+
+Extended modifications include the standalone server, shared local bridge,
+Chrome extension control panel, CDP session management, network capture,
+additional tools, automated tests, and project documentation.
+
+Modified source files are distributed as part of BrowserMCP Extended.
+Third-party packages retain their own licenses. See THIRD_PARTY_NOTICES.md.
